@@ -8,33 +8,80 @@
 
 import UIKit
 
+enum LoginType {
+    case signUp
+    case signIn
+}
+
 class LoginViewController: UIViewController {
 
+    @IBOutlet private weak var usernameTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var loginTypeSegmentedControl: UITextField!
+    @IBOutlet private weak var signInButton: UITextField!
+    
+    var apiController: APIController?
+    var loginType = LoginType.signUp
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    @IBAction func usernameTextField(_ sender: Any) {
-    }
-    @IBAction func passwordTextField(_ sender: Any) {
-    }
-    @IBAction func signInButton(_ sender: Any) {
-    }
-    @IBAction func loginTypeSegmentedView(_ sender: Any) {
+        
+        // customize button apperance
+        signInButton.backgroundColor = UIColor(hue: 190/360, saturation: 70/100, brightness: 80/100, alpha: 1.0)
+        signInButton.tintColor = .white
+        signInButton.layer.cornerRadius = 8.0
     }
     
+    // MARK : - Action Handlers
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func buttonTapped(_ sender: UIButton) {
+        // perform login or sign up operation based on loginType
+        guard let apiController = apiController else { return }
+        if let username = usernameTextField.text,
+        !username.isEmpty,
+        let password = passwordTextField.text,
+            !password.isEmpty {
+            let user = User(username: username, password: password)
+            
+            if loginType == .signUp {
+                apiController.signUp(with: user) { error in
+                    if let error = error {
+                        print("Error occurred during sign up: \(error)")
+                    } else {
+                        DispatchQueue.main.async {
+                            let alertController = UIAlrtController(title: "Sign Up Successful", message: "Now please log in.", preferredStyle: .alert)
+                            let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                            alertController.addAction(alertAction)
+                            self.present(alertController, animated: true, completion: {
+                                self.loginType = .signIn
+                                self.loginTypeSegmentedControl.selectedSegmentIndex = 1
+                                self.signInButton.setTitle("Sign In", for: .normal)
+                            })
+                        }
+                    }
+                }
+            } else {
+                apiController.signIn(with: user) { error in
+                    if let error = error {
+                        print("Error occurred during sign up: \(error)")
+                    } else {
+                        DispatchQueue.main.async {
+                            self .dismiss(animated: true, completion: nil)
+                        }
+                    }
+                }
+            }
+        }
     }
-    */
-
+    
+    @IBAction func signInTypeChanged(_ sender: UISegmentedControl) {
+        // switch UI between modes
+        if sender.selectedSegmentIndex == 0 {
+            loginType = .signUp
+            signInButton.setTitle("Sign Up", for: .normal)
+        } else {
+            loginType = .signIn
+            signInButton.setTitle("Sign In", for: .normal)
+        }
+    }
 }

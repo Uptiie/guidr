@@ -71,8 +71,8 @@
 			isa = PBXGroup;
 			children = (
 				6357C3EE22C16F8C0026BD29 /* Application */,
-				6357C3ED22C16F410026BD29 /* Models */,
 				6357C3FC22C1711F0026BD29 /* View Controllers */,
+				6357C3ED22C16F410026BD29 /* Models */,
 				6357C3CD22BEF7E50026BD29 /* Main.storyboard */,
 				6357C3D022BEF7E70026BD29 /* Assets.xcassets */,
 				6357C3D222BEF7E70026BD29 /* LaunchScreen.storyboard */,
