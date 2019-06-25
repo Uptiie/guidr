@@ -49,8 +49,8 @@ class LoginViewController: UIViewController {
                         print("Error occurred during sign up: \(error)")
                     } else {
                         DispatchQueue.main.async {
-                            let alertController = UIAlrtController(title: "Sign Up Successful", message: "Now please log in.", preferredStyle: .alert)
-                            let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                            let alertController = UIAlertController(title: "Sign Up Successful", message: "Now please log in.", preferredStyle: .alert)
+                            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                             alertController.addAction(alertAction)
                             self.present(alertController, animated: true, completion: {
                                 self.loginType = .signIn
@@ -61,7 +61,7 @@ class LoginViewController: UIViewController {
                     }
                 }
             } else {
-                apiController.signIn(with: user) { error in
+                apiController.signUp(with: user) { error in
                     if let error = error {
                         print("Error occurred during sign up: \(error)")
                     } else {

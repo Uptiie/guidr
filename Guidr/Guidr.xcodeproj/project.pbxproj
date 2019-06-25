@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6332670B22C2D82500A37DA7 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6332670A22C2D82500A37DA7 /* UserAccount.swift */; };
 		6357C3CA22BEF7E50026BD29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357C3C922BEF7E50026BD29 /* AppDelegate.swift */; };
 		6357C3CF22BEF7E50026BD29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6357C3CD22BEF7E50026BD29 /* Main.storyboard */; };
 		6357C3D122BEF7E70026BD29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6357C3D022BEF7E70026BD29 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6332670A22C2D82500A37DA7 /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		6357C3C622BEF7E50026BD29 /* Guidr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Guidr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6357C3C922BEF7E50026BD29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6357C3CE22BEF7E50026BD29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			children = (
 				6357C3E922C16F220026BD29 /* Trip.swift */,
 				6357C3E722C16F0D0026BD29 /* User.swift */,
+				6332670A22C2D82500A37DA7 /* UserAccount.swift */,
 				6357C3EB22C16F310026BD29 /* Bearer.swift */,
 			);
 			path = Models;
@@ -212,6 +215,7 @@
 				6357C3F022C1700A0026BD29 /* UserViewController.swift in Sources */,
 				6357C3EA22C16F220026BD29 /* Trip.swift in Sources */,
 				6357C3CA22BEF7E50026BD29 /* AppDelegate.swift in Sources */,
+				6332670B22C2D82500A37DA7 /* UserAccount.swift in Sources */,
 				6357C3DC22BEF9220026BD29 /* ApiController.swift in Sources */,
 				6357C3F222C170250026BD29 /* EditUserViewController.swift in Sources */,
 				6357C3F622C170750026BD29 /* EditTripViewController.swift in Sources */,
