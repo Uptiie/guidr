@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6332670B22C2D82500A37DA7 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6332670A22C2D82500A37DA7 /* UserAccount.swift */; };
+		6332670D22C3D33A00A37DA7 /* buttonbasic.png in Resources */ = {isa = PBXBuildFile; fileRef = 6332670C22C3D33A00A37DA7 /* buttonbasic.png */; };
 		6357C3CA22BEF7E50026BD29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357C3C922BEF7E50026BD29 /* AppDelegate.swift */; };
 		6357C3CF22BEF7E50026BD29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6357C3CD22BEF7E50026BD29 /* Main.storyboard */; };
 		6357C3D122BEF7E70026BD29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6357C3D022BEF7E70026BD29 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		6332670A22C2D82500A37DA7 /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
+		6332670C22C3D33A00A37DA7 /* buttonbasic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = buttonbasic.png; path = ../../../../buttonbasic.png; sourceTree = "<group>"; };
 		6357C3C622BEF7E50026BD29 /* Guidr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Guidr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6357C3C922BEF7E50026BD29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6357C3CE22BEF7E50026BD29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				6357C3ED22C16F410026BD29 /* Models */,
 				6357C3CD22BEF7E50026BD29 /* Main.storyboard */,
 				6357C3D022BEF7E70026BD29 /* Assets.xcassets */,
+				6332670C22C3D33A00A37DA7 /* buttonbasic.png */,
 				6357C3D222BEF7E70026BD29 /* LaunchScreen.storyboard */,
 				6357C3D522BEF7E70026BD29 /* Info.plist */,
 			);
@@ -198,6 +201,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6332670D22C3D33A00A37DA7 /* buttonbasic.png in Resources */,
 				6357C3D422BEF7E70026BD29 /* LaunchScreen.storyboard in Resources */,
 				6357C3D122BEF7E70026BD29 /* Assets.xcassets in Resources */,
 				6357C3CF22BEF7E50026BD29 /* Main.storyboard in Resources */,

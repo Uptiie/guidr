@@ -13,12 +13,12 @@ enum LoginType {
     case signIn
 }
 
-class LoginViewController: UIViewController {
-
-    @IBOutlet private weak var usernameTextField: UITextField!
-    @IBOutlet private weak var passwordTextField: UITextField!
-    @IBOutlet private weak var loginTypeSegmentedControl: UITextField!
-    @IBOutlet private weak var signInButton: UITextField!
+class LoginViewController: UIViewController, UITextFieldDelegate {
+    
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginTypeSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var signInButton: UIButton!
     
     var apiController: APIController?
     var loginType = LoginType.signUp
@@ -32,14 +32,15 @@ class LoginViewController: UIViewController {
         signInButton.layer.cornerRadius = 8.0
     }
     
-    // MARK : - Action Handlers
+    // MARK: - Action Handlers
+    
     
     @IBAction func buttonTapped(_ sender: UIButton) {
         // perform login or sign up operation based on loginType
         guard let apiController = apiController else { return }
         if let username = usernameTextField.text,
-        !username.isEmpty,
-        let password = passwordTextField.text,
+            !username.isEmpty,
+            let password = passwordTextField.text,
             !password.isEmpty {
             let user = User(username: username, password: password)
             
@@ -61,18 +62,19 @@ class LoginViewController: UIViewController {
                     }
                 }
             } else {
-                apiController.signUp(with: user) { error in
+                apiController.signIn(with: user) { error in
                     if let error = error {
                         print("Error occurred during sign up: \(error)")
                     } else {
                         DispatchQueue.main.async {
-                            self .dismiss(animated: true, completion: nil)
+                            self.dismiss(animated: true, completion: nil)
                         }
                     }
                 }
             }
         }
     }
+    
     
     @IBAction func signInTypeChanged(_ sender: UISegmentedControl) {
         // switch UI between modes
@@ -85,3 +87,4 @@ class LoginViewController: UIViewController {
         }
     }
 }
+

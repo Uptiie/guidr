@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="lif-0k-rXO">
             <objects>
-                <viewController id="IKY-vG-Iao" sceneMemberID="viewController">
+                <viewController id="IKY-vG-Iao" customClass="LoginViewController" customModule="Guidr" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Z9s-bF-Wtf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,25 +23,18 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="UsernameTextField:" destination="xKf-S6-tB4" eventType="editingDidEnd" id="iC1-53-ISx"/>
-                                    <action selector="usernameTextField:" destination="xKf-S6-tB4" eventType="editingDidEnd" id="SLq-PX-XwJ"/>
-                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Th3-cn-lVn">
                                 <rect key="frame" x="124" y="464" width="166" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="passwordTextField:" destination="xKf-S6-tB4" eventType="editingDidEnd" id="XMw-sg-pjT"/>
-                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRK-DO-EqS">
                                 <rect key="frame" x="184" y="502" width="47" height="30"/>
                                 <state key="normal" title="Sign In"/>
                                 <connections>
-                                    <action selector="signInButton:" destination="xKf-S6-tB4" eventType="touchUpInside" id="PpM-Cd-eRC"/>
+                                    <action selector="buttonTapped:" destination="IKY-vG-Iao" eventType="touchUpInside" id="SOx-aq-pWm"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fc6-3F-7qW">
@@ -51,7 +44,7 @@
                                     <segment title="Sign Up"/>
                                 </segments>
                                 <connections>
-                                    <action selector="loginTypeSegmentedView:" destination="xKf-S6-tB4" eventType="valueChanged" id="Su4-0B-yhO"/>
+                                    <action selector="signInTypeChanged:" destination="IKY-vG-Iao" eventType="valueChanged" id="ccz-CN-C3z"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
@@ -76,11 +69,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fzM-r6-BZL"/>
                     </view>
+                    <connections>
+                        <outlet property="loginTypeSegmentedControl" destination="fc6-3F-7qW" id="oPc-GK-hC7"/>
+                        <outlet property="passwordTextField" destination="Th3-cn-lVn" id="tRh-o3-CNR"/>
+                        <outlet property="signInButton" destination="eRK-DO-EqS" id="BMH-1k-Ug0"/>
+                        <outlet property="usernameTextField" destination="cZO-fs-RvG" id="iVK-Ac-E6R"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bOA-CU-NLb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="xKf-S6-tB4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="598.55072463768124" y="-2298.2142857142858"/>
+            <point key="canvasLocation" x="598.55072463768124" y="-2298.8839285714284"/>
         </scene>
         <!--Profile-->
         <scene sceneID="0fv-Nt-r1W">
@@ -138,6 +136,12 @@
                         <viewLayoutGuide key="safeArea" id="fg8-Uw-TIf"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="dVJ-oj-HMI"/>
+                    <connections>
+                        <outlet property="ageLabel" destination="I53-kG-LDh" id="q8P-no-ghu"/>
+                        <outlet property="bioLabel" destination="GMd-gK-8Be" id="D2e-ep-6fK"/>
+                        <outlet property="timeAsGuideLabel" destination="KPV-Oz-9yE" id="FP3-L4-TEU"/>
+                        <outlet property="userNameLabel" destination="HJz-RW-SpU" id="8eP-ZB-6Ku"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d6l-jP-oQj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -190,6 +194,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zot-UP-ahS">
                                 <rect key="frame" x="158" y="479" width="98" height="30"/>
                                 <state key="normal" title="Update Profile"/>
+                                <connections>
+                                    <segue destination="FN0-pT-Loq" kind="show" id="AXR-p4-sBL"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -299,7 +306,7 @@ in here!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PYl-5O-q56">
-                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
                                     <navigationItem id="h8g-Uu-68D">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="3h4-gA-aE9">
@@ -311,13 +318,13 @@ in here!</string>
                                 </items>
                             </navigationBar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Trip Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jXE-CF-0f8">
-                                <rect key="frame" x="68" y="192" width="273" height="30"/>
+                                <rect key="frame" x="68" y="148" width="273" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B5Q-pX-Lsa">
-                                <rect key="frame" x="68" y="236" width="273" height="30"/>
+                                <rect key="frame" x="68" y="192" width="273" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -330,23 +337,26 @@ in here!</string>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Length of Days" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cx1-1k-4Up">
-                                <rect key="frame" x="68" y="285" width="118.5" height="30"/>
+                                <rect key="frame" x="68" y="241" width="118.5" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Myv-cw-0ZP">
-                                <rect key="frame" x="205" y="285" width="71" height="30"/>
+                                <rect key="frame" x="205" y="241" width="71" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ClV-se-fgm">
-                                <rect key="frame" x="178" y="423" width="58" height="30"/>
+                                <rect key="frame" x="178" y="379" width="58" height="30"/>
                                 <state key="normal" title="Add Trip"/>
+                                <connections>
+                                    <segue destination="uZG-cM-Ez6" kind="show" id="h1L-41-TLd"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="ct1-UR-477">
-                                <rect key="frame" x="68" y="338" width="239.5" height="31"/>
+                                <rect key="frame" x="68" y="294" width="239.5" height="31"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make Trip Private?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZX-tg-U9a">
                                         <rect key="frame" x="0.0" y="0.0" width="140.5" height="31"/>
@@ -422,7 +432,7 @@ in here!</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="uVa-fC-6vs"/>
+        <segue reference="IPT-d0-0se"/>
         <segue reference="HbW-HH-LxW"/>
         <segue reference="kyg-Xa-Cxf"/>
     </inferredMetricsTieBreakers>
